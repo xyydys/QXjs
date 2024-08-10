@@ -1,13 +1,4 @@
-/*
-Morse
 
-[rewrite_local]
-
-https://api.apphud.com/v1/subscriptions/raw url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/morse.js
-
-[mitm] 
-
-hostname = api.apphud.com
 
 **/
 
