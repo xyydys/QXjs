@@ -7,7 +7,7 @@
 
  [mitm]
 
- 主机名 = api.apphud.com
+ hostname=api.apphud.com
 
 **/
 
