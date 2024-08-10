@@ -1,4 +1,13 @@
+/*
+ 莫尔斯
 
+ [rewrite_local]
+
+ https://api.apphud.com/v1/subscriptions/raw url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/morse.js
+
+ [mitm]
+
+ 主机名 = api.apphud.com
 
 **/
 
