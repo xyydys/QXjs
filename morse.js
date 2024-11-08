@@ -1,5 +1,5 @@
 /*
- 莫尔斯
+ morse
 
  [rewrite_local]
 
