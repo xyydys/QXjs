@@ -1,17 +1,21 @@
-```javascript
-// 脚本名称：555影视广告拦截
-// 脚本作者：Assistant
-// 更新时间：2023-06-14
-// 使用说明：在Quantumult X中添加以下重写规则
+// ==UserScript==
+// @ScriptName        555影视广告拦截
+// @Author            Assistant
+// @UpdateTime        2023-06-14
+// @Attention         在Quantumult X中添加以下重写规则
+// @ScriptURL         https://raw.githubusercontent.com/xyydys/QXjs/main/adblock555.js
+// @Version           1.0
+// @ScriptFunction    去除555影视广告
 [rewrite_local]
 ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,3}(:\d+)?\/api\/v\d\/.* url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/adblock555.js
+
 [mitm]
 hostname = *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com
-**/
+// ==/UserScript==
 
 let obj = JSON.parse($response.body);
 
-#通用函数：过滤广告
+// 通用函数：过滤广告
 function filterAds(data) {
   if (Array.isArray(data)) {
     return data.filter(item => {
@@ -25,12 +29,12 @@ function filterAds(data) {
   return data;
 }
 
-# 应用过滤
+// 应用过滤
 if (obj.data) {
   obj.data = filterAds(obj.data);
 }
 
-# 移除广告相关字段
+// 移除广告相关字段
 ['advert', 'advertStatus', 'ads', 'adInfo', 'advert_info', 'advertisement'].forEach(field => {
   if (obj[field]) {
     if (Array.isArray(obj[field])) {
@@ -45,3 +49,4 @@ if (obj.data) {
 
 $done({body: JSON.stringify(obj)});
 ```
+
