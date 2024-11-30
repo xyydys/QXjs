@@ -6,7 +6,7 @@
 [rewrite_local]
 ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,3}(:\d+)?\/api\/v\d\/.* url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/adblock555.js
 [mitm]
-*.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com
+hostname = *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com
 **/
 
 let obj = JSON.parse($response.body);
