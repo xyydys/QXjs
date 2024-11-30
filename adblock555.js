@@ -4,7 +4,7 @@
 // 更新时间：2023-06-14
 // 使用说明：在Quantumult X中添加以下重写规则
 [rewrite_local]
-^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,3}(:\d+)?\/api\/v\d\/.* url script-response-body https://raw.githubusercontent.com/your-username/your-repo/main/adBlock555.js
+^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,3}(:\d+)?\/api\/v\d\/.* url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/adblock555.js
 [mitm]
 *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com
 **/
