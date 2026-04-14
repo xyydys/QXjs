@@ -1,0 +1,23 @@
+# 文件名：Baidu_Clean.snippet
+# 描述：百度网盘净化 - 屏蔽开屏广告及精简金刚区图标
+# 更新时间：2026-04-14
+
+[rewrite_local]
+# --- 1. 脚本类重写：金刚区过滤 ---
+# 匹配 kingkongdistrict 接口，调用远程 JS 脚本
+^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? url script-response-body https://raw.githubusercontent.com/xyydys/QXjs/main/baidu_feed.js
+
+# --- 2. 拦截类重写：屏蔽各类广告及推广接口 ---
+^https:\/\/pan\.baidu\.com\/api\/getconfig\? url reject-dict
+^https:\/\/pan\.baidu\.com\/api\/getsyscfg\? url reject-dict
+^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\? url reject-dict
+^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\? url reject-dict
+^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\? url reject-dict
+^https:\/\/pan\.baidu\.com\/api\/plugin\/get\? url reject-dict
+^https:\/\/pan\.baidu\.com\/recommend\/query\/list\? url reject-dict
+# 屏蔽开屏广告静态资源配置
+^https:\/\/pan\.baidu\.com\/res\/static\/et\/adv\? url reject-200
+
+[mitm]
+# 确保所有域名使用英文逗号分隔，无多余空格或中文标点
+hostname = pan.baidu.com, api.pc.baidu.com, ad.baidu.com
